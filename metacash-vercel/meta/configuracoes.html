@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Configurações | MetaCash</title>
+
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="../css/paginas/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/paginas/configuracoes.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+            FUNDO
+    ====================================== -->
+
+    <div class="background"></div>
+
+
+
+    <!-- =====================================
+            SIDEBAR
+    ====================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <img
+                src="../assets/icons/imagens/logo/abacate.png"
+                alt="MetaCash"
+            >
+
+        </div>
+
+
+        <nav class="menu">
+
+            <a
+                href="dashboard.html"
+                class="menu-item"
+            >
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+
+            <a
+                href="entradas.html"
+                class="menu-item"
+            >
+                <span>＋</span>
+                Entradas
+            </a>
+
+
+            <a
+                href="gastos.html"
+                class="menu-item"
+            >
+                <span>−</span>
+                Gastos
+            </a>
+
+
+            <a
+                href="metas.html"
+                class="menu-item"
+            >
+                <span>🎯</span>
+                Metas
+            </a>
+
+
+            <a
+                href="relatorios.html"
+                class="menu-item"
+            >
+                <span>▣</span>
+                Relatórios
+            </a>
+
+
+            <a
+                href="configuracoes.html"
+                class="menu-item active"
+            >
+                <span>⚙</span>
+                Configurações
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <button id="sair">
+
+                ↪ Sair
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================
+            CONTEÚDO
+    ====================================== -->
+
+    <main class="config-main">
+
+
+        <div class="config-header">
+
+            <div>
+
+                <p class="small-title">
+                    Preferências
+                </p>
+
+                <h1>
+                    Configurações
+                </h1>
+
+            </div>
+
+
+            <div
+                class="avatar"
+                id="avatar"
+            >
+                U
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================
+                NOME
+        ================================== -->
+
+        <section class="config-section">
+
+
+            <h2>
+                Seu Nome
+            </h2>
+
+
+            <div class="config-item">
+
+
+                <input
+                    type="text"
+                    id="nome"
+                    placeholder="Digite seu nome"
+                >
+
+
+                <button
+                    type="button"
+                    id="salvarNome"
+                    class="btn-save"
+                >
+
+                    Salvar
+
+                </button>
+
+
+            </div>
+
+
+            <p
+                id="mensagemNome"
+                class="message"
+            ></p>
+
+
+        </section>
+
+
+
+        <!-- =================================
+                SALDO
+        ================================== -->
+
+        <section class="config-section">
+
+
+            <h2>
+                Saldo Inicial
+            </h2>
+
+
+            <div class="config-item">
+
+
+                <div class="input-money">
+
+                    <span>
+                        R$
+                    </span>
+
+
+                    <input
+                        type="number"
+                        id="saldoInicial"
+                        min="0"
+                        step="0.01"
+                        placeholder="0,00"
+                    >
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="salvarSaldo"
+                    class="btn-save"
+                >
+
+                    Salvar
+
+                </button>
+
+
+            </div>
+
+
+            <p
+                id="mensagemSaldo"
+                class="message"
+            ></p>
+
+
+        </section>
+
+
+
+        <!-- =================================
+                PORCENTAGEM PARA METAS
+        ================================== -->
+
+        <section class="config-section">
+
+            <h2>Reserva automática para metas</h2>
+
+            <p class="description">
+                Escolha qual porcentagem de cada nova entrada será destinada automaticamente às suas metas financeiras.
+            </p>
+
+            <div class="config-item">
+                <input
+                    type="number"
+                    id="porcentagemMetas"
+                    min="0"
+                    max="100"
+                    step="1"
+                    inputmode="decimal"
+                    placeholder="10"
+                    aria-label="Porcentagem destinada às metas"
+                >
+                <span class="percentage-suffix">%</span>
+                <button type="button" id="salvarPorcentagemMetas" class="btn-save">
+                    Salvar
+                </button>
+            </div>
+
+            <p id="mensagemPorcentagemMetas" class="message" aria-live="polite"></p>
+
+            <div class="methodology-notice">
+                <strong>Por que usamos a metodologia 50/30/20?</strong>
+                <p>Ela é uma referência para organizar o dinheiro: cerca de 50% para necessidades, 30% para desejos e 20% para poupança, metas e prioridades financeiras. É uma orientação, não uma regra obrigatória: adapte os percentuais à sua realidade.</p>
+                <p>A reserva automática para metas é configurada separadamente e será calculada sobre cada nova entrada.</p>
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+                CATEGORIAS
+        ================================== -->
+
+        <section class="config-section">
+
+
+            <h2>
+                Suas Categorias
+            </h2>
+
+
+            <p class="description">
+
+                Remova somente as categorias que você não utiliza.
+
+            </p>
+
+
+            <div
+                id="listaCategorias"
+                class="categories-list"
+            ></div>
+
+
+        </section>
+
+
+
+        <!-- =================================
+                AVISOS
+        ================================== -->
+
+        <section class="config-section alert-settings">
+
+
+            <h2>
+                Avisos Financeiros
+            </h2>
+
+
+            <p class="description">
+
+                Escolha quando o MetaCash deve chamar sua atenção.
+
+            </p>
+
+
+            <!-- LIMITE DA CATEGORIA -->
+
+            <div class="alert-setting">
+
+
+                <div class="alert-setting-info">
+
+                    <strong>
+                        Avisar quando a categoria atingir
+                    </strong>
+
+                    <small>
+                        Percentual do limite usado.
+                    </small>
+
+                </div>
+
+
+                <div class="percentage-options">
+
+
+                    <label class="percentage-option">
+
+                        <input
+                            type="radio"
+                            name="limiteCategoria"
+                            value="70"
+                        >
+
+                        <span>
+                            70%
+                        </span>
+
+                    </label>
+
+
+                    <label class="percentage-option">
+
+                        <input
+                            type="radio"
+                            name="limiteCategoria"
+                            value="80"
+                        >
+
+                        <span>
+                            80%
+                        </span>
+
+                    </label>
+
+
+                    <label class="percentage-option">
+
+                        <input
+                            type="radio"
+                            name="limiteCategoria"
+                            value="90"
+                        >
+
+                        <span>
+                            90%
+                        </span>
+
+                    </label>
+
+
+                    <label class="percentage-option">
+
+                        <input
+                            type="radio"
+                            name="limiteCategoria"
+                            value="100"
+                        >
+
+                        <span>
+                            100%
+                        </span>
+
+                    </label>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- SALDO MÍNIMO -->
+
+            <div class="alert-setting">
+
+
+                <div class="alert-setting-info">
+
+                    <strong>
+                        Saldo mínimo
+                    </strong>
+
+                    <small>
+                        Avisar quando o saldo ficar abaixo deste valor.
+                    </small>
+
+                </div>
+
+
+                <div class="alert-money">
+
+                    <span>
+                        R$
+                    </span>
+
+
+                    <input
+                        type="number"
+                        id="saldoMinimo"
+                        min="0"
+                        step="0.01"
+                        placeholder="50,00"
+                    >
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- COMPARAÇÃO -->
+
+            <div class="alert-setting">
+
+
+                <div class="alert-setting-info">
+
+                    <strong>
+                        Comparação mensal
+                    </strong>
+
+                    <small>
+                        Comparar seus gastos com o mês anterior.
+                    </small>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="comparacaoMensal"
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+
+            </div>
+
+
+            <button
+                type="button"
+                id="salvarAlertas"
+                class="btn-alert-save"
+            >
+
+                Salvar avisos
+
+            </button>
+
+
+            <p
+                id="mensagemAlertas"
+                class="message"
+            ></p>
+
+
+        </section>
+
+
+
+        <!-- =================================
+                ZONA DE PERIGO
+        ================================== -->
+
+        <section class="config-section danger-zone">
+
+
+            <h2>
+                Zona de Perigo
+            </h2>
+
+
+            <p>
+
+                Ao clicar no botão abaixo, todos os seus dados financeiros serão apagados permanentemente.
+
+            </p>
+
+
+            <button
+                id="apagarDados"
+                type="button"
+                class="btn-danger"
+            >
+
+                🗑️ Apagar Dados Financeiros
+
+            </button>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <script src="../js/storage.js"></script>
+    <script src="../js/configuracoes.js"></script>
+
+</body>
+
+</html>

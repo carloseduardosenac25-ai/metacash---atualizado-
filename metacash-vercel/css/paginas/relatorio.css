@@ -1,0 +1,1002 @@
+/* =========================================
+        RELATÓRIOS
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: #020616;
+    font-family: "Poppins", sans-serif;
+    color: #ffffff;
+}
+
+body {
+    display: block;
+    padding: 0;
+}
+
+/* =========================================
+        SIDEBAR
+========================================= */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 230px;
+    height: 100vh;
+    padding: 30px 18px;
+    background: #020616;
+    border-right: 1px solid #172033;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 45px;
+}
+
+.sidebar-logo img {
+    width: 145px;
+    height: auto;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 15px;
+    border-radius: 10px;
+    color: #8993A5;
+    text-decoration: none;
+    font-size: 13px;
+    transition: 0.25s;
+}
+
+.menu-item span {
+    width: 22px;
+    font-size: 17px;
+    text-align: center;
+}
+
+.menu-item:hover {
+    background: #0B1222;
+    color: #FFFFFF;
+}
+
+.menu-item.active {
+    background: rgba(0, 214, 143, 0.10);
+    color: #00D68F;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+#sair {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #172033;
+    border-radius: 10px;
+    background: transparent;
+    color: #8993A5;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    transition: 0.25s;
+}
+
+#sair:hover {
+    color: #FF6577;
+    border-color: #FF6577;
+}
+
+/* =========================================
+        ÁREA PRINCIPAL
+========================================= */
+
+.report-main {
+    margin-left: 230px;
+    min-height: 100vh;
+    padding: 35px 40px;
+    background: transparent;
+}
+
+.report-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.report-header h1 {
+    margin: 0;
+    font-size: 27px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.filters {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.filters select {
+    height: 42px;
+    min-width: 170px;
+    padding: 0 12px;
+    background: #071022;
+    border: 1px solid #172033;
+    border-radius: 10px;
+    color: #dfe7ff;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    outline: none;
+}
+
+/* =========================================
+        CARDS DE RESUMO
+========================================= */
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.summary-card {
+    min-height: 145px;
+    padding: 22px;
+    background: #071022;
+    border: 1px solid #172033;
+    border-radius: 16px;
+    transition: 0.25s;
+}
+
+.summary-card:hover {
+    transform: translateY(-3px);
+    border-color: #263652;
+}
+
+.summary-card:nth-child(1) {
+    background: linear-gradient(135deg, rgba(0, 214, 143, 0.09), #071022);
+}
+
+.summary-card:nth-child(2) {
+    background: #071022;
+}
+
+.summary-card:nth-child(3) {
+    background: #071022;
+}
+
+.summary-card p {
+    margin: 0 0 8px;
+    color: #8993A5;
+    font-size: 12px;
+}
+
+.summary-card h3 {
+    margin: 0;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.summary-card:nth-child(1) h3 {
+    color: #00D68F;
+}
+
+.summary-card:nth-child(2) h3 {
+    color: #FF6577;
+}
+
+.summary-card:nth-child(3) h3 {
+    color: #6ecbff;
+}
+
+/* =========================================
+        GRÁFICOS
+========================================= */
+
+.chart-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.chart-card,
+.detail-card {
+    min-height: 300px;
+    padding: 23px;
+    background: #071022;
+    border: 1px solid #172033;
+    border-radius: 16px;
+}
+
+.chart-card canvas {
+    width: 100% !important;
+    height: 260px !important;
+}
+
+.detail-card h2 {
+    margin: 0 0 18px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+#detalhamentoCategorias {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.category-detail {
+    padding: 12px 12px 10px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(93, 125, 174, 0.08);
+    border-radius: 12px;
+}
+
+.category-detail-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 12px;
+    color: #dfe7ff;
+    margin-bottom: 10px;
+}
+
+.category-detail-name {
+    font-weight: 600;
+}
+
+.category-detail-value {
+    color: #a9b8d4;
+    text-align: right;
+}
+
+.category-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+.category-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00d68f, #6ecbff);
+    border-radius: 99px;
+}
+
+.empty-report {
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #8fa0bb;
+    gap: 10px;
+}
+
+.empty-report span {
+    font-size: 28px;
+}
+
+/* =========================================
+        RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 1000px) {
+    .sidebar {
+        width: 190px;
+    }
+
+    .report-main {
+        margin-left: 190px;
+        padding: 30px;
+    }
+
+    .summary-grid,
+    .chart-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        border-right: none;
+        border-bottom: 1px solid #172033;
+    }
+
+    .menu {
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .menu-item {
+        white-space: nowrap;
+    }
+
+    .sidebar-bottom {
+        display: none;
+    }
+
+    .report-main {
+        margin-left: 0;
+        padding: 22px 15px;
+    }
+
+    .report-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filters {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filters select {
+        width: 100%;
+    }
+}
+/* =========================================
+        METODOLOGIA 50 / 30 / 20
+========================================= */
+
+.methodology-card {
+
+    width: 100%;
+
+    margin-top: 22px;
+
+    padding: 24px;
+
+    background: #071022;
+
+    border: 1px solid #172033;
+
+    border-radius: 16px;
+
+}
+
+
+/* =========================================
+        CABEÇALHO
+========================================= */
+
+.methodology-header {
+
+    margin-bottom: 22px;
+
+}
+
+.methodology-label {
+
+    color: #00D68F;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+
+    text-transform: uppercase;
+
+}
+
+.methodology-header h2 {
+
+    margin: 6px 0;
+
+    color: #FFFFFF;
+
+    font-size: 17px;
+
+    font-weight: 500;
+
+}
+
+.methodology-header p {
+
+    margin: 0;
+
+    color: #718096;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================
+        STATUS
+========================================= */
+
+.methodology-status {
+
+    width: 100%;
+
+    margin-bottom: 22px;
+
+    padding: 12px 14px;
+
+    border: 1px solid rgba(98, 104, 223, 0.20);
+
+    border-radius: 10px;
+
+    background: rgba(98, 104, 223, 0.08);
+
+    color: #A8B2C4;
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================
+        ITEM
+========================================= */
+
+.methodology-item {
+
+    margin-bottom: 22px;
+
+}
+
+.methodology-item:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+/* =========================================
+        TOPO DO ITEM
+========================================= */
+
+.methodology-item-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 8px;
+
+}
+
+.methodology-item-top > div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+
+}
+
+.methodology-item-top strong {
+
+    color: #FFFFFF;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+}
+
+.methodology-item-top span {
+
+    color: #657084;
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================
+        BARRA
+========================================= */
+
+.methodology-bar {
+
+    width: 100%;
+
+    height: 8px;
+
+    overflow: hidden;
+
+    background: #101A2C;
+
+    border-radius: 99px;
+
+}
+
+.methodology-bar-fill {
+
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: 99px;
+
+    transition:
+        width 0.6s ease,
+        background 0.3s ease;
+
+}
+
+.methodology-bar-fill.necessities {
+
+    background: #6E7CFF;
+
+}
+
+.methodology-bar-fill.leisure {
+
+    background: #D84AC7;
+
+}
+
+.methodology-bar-fill.economy {
+
+    background: #00D68F;
+
+}
+
+
+/* =========================================
+        FEEDBACK
+========================================= */
+
+.methodology-feedback {
+
+    margin-top: 7px;
+
+}
+
+.methodology-feedback span {
+
+    color: #718096;
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================
+        STATUS POSITIVO
+========================================= */
+
+.methodology-status.success {
+
+    border-color: rgba(0, 214, 143, 0.20);
+
+    background: rgba(0, 214, 143, 0.07);
+
+    color: #00D68F;
+
+}
+
+
+/* =========================================
+        STATUS ALERTA
+========================================= */
+
+.methodology-status.warning {
+
+    border-color: rgba(255, 209, 102, 0.20);
+
+    background: rgba(255, 209, 102, 0.07);
+
+    color: #FFD166;
+
+}
+
+
+/* =========================================
+        STATUS CRÍTICO
+========================================= */
+
+.methodology-status.danger {
+
+    border-color: rgba(255, 101, 119, 0.20);
+
+    background: rgba(255, 101, 119, 0.07);
+
+    color: #FF6577;
+
+}
+
+
+/* =========================================
+        CELULAR
+========================================= */
+
+@media (max-width: 600px) {
+
+    .methodology-card {
+
+        padding: 20px;
+
+    }
+
+}
+/* =========================================
+        METODOLOGIA 50 / 30 / 20
+========================================= */
+
+.methodology-card {
+
+    width: 100%;
+
+    margin-top: 22px;
+
+    padding: 25px;
+
+    background: #071022;
+
+    border: 1px solid #172033;
+
+    border-radius: 16px;
+
+    transition: 0.25s;
+
+}
+
+
+.methodology-card:hover {
+
+    border-color: #263652;
+
+}
+
+
+/* =========================================
+        CABEÇALHO
+========================================= */
+
+.methodology-header {
+
+    margin-bottom: 22px;
+
+}
+
+
+.methodology-label {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #00D68F;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+
+    text-transform: uppercase;
+
+}
+
+
+.methodology-header h2 {
+
+    margin: 0 0 6px;
+
+    color: #FFFFFF;
+
+    font-size: 17px;
+
+    font-weight: 500;
+
+}
+
+
+.methodology-header p {
+
+    margin: 0;
+
+    color: #718096;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================
+        STATUS GERAL
+========================================= */
+
+.methodology-status {
+
+    width: 100%;
+
+    margin-bottom: 22px;
+
+    padding: 12px 15px;
+
+    background: rgba(98, 104, 223, 0.08);
+
+    border: 1px solid rgba(98, 104, 223, 0.20);
+
+    border-radius: 10px;
+
+    color: #A8B2C4;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    transition: 0.25s;
+
+}
+
+
+/* STATUS POSITIVO */
+
+.methodology-status.success {
+
+    background: rgba(0, 214, 143, 0.07);
+
+    border-color: rgba(0, 214, 143, 0.20);
+
+    color: #00D68F;
+
+}
+
+
+/* STATUS DE ALERTA */
+
+.methodology-status.warning {
+
+    background: rgba(255, 209, 102, 0.07);
+
+    border-color: rgba(255, 209, 102, 0.20);
+
+    color: #FFD166;
+
+}
+
+
+/* STATUS CRÍTICO */
+
+.methodology-status.danger {
+
+    background: rgba(255, 101, 119, 0.07);
+
+    border-color: rgba(255, 101, 119, 0.20);
+
+    color: #FF6577;
+
+}
+
+
+/* =========================================
+        ITEM
+========================================= */
+
+.methodology-item {
+
+    margin-bottom: 22px;
+
+}
+
+
+.methodology-item:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+/* =========================================
+        TOPO DO ITEM
+========================================= */
+
+.methodology-item-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.methodology-item-top > div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+
+}
+
+
+.methodology-item-top strong {
+
+    color: #FFFFFF;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+}
+
+
+.methodology-item-top > strong {
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+
+.methodology-item-top span {
+
+    color: #657084;
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================
+        BARRA
+========================================= */
+
+.methodology-bar {
+
+    width: 100%;
+
+    height: 8px;
+
+    overflow: hidden;
+
+    background: #101A2C;
+
+    border-radius: 99px;
+
+}
+
+
+.methodology-bar-fill {
+
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: 99px;
+
+    transition:
+
+        width 0.6s ease,
+
+        background 0.3s ease;
+
+}
+
+
+/* =========================================
+        CORES DAS BARRAS
+========================================= */
+
+.methodology-bar-fill.necessities {
+
+    background: linear-gradient(
+        90deg,
+        #6268DF,
+        #7D82FF
+    );
+
+}
+
+
+.methodology-bar-fill.leisure {
+
+    background: linear-gradient(
+        90deg,
+        #B53CC0,
+        #D84AC7
+    );
+
+}
+
+
+.methodology-bar-fill.economy {
+
+    background: linear-gradient(
+        90deg,
+        #00D68F,
+        #20E5A5
+    );
+
+}
+
+
+/* =========================================
+        FEEDBACK
+========================================= */
+
+.methodology-feedback {
+
+    margin-top: 7px;
+
+}
+
+
+.methodology-feedback span {
+
+    color: #718096;
+
+    font-size: 10px;
+
+    line-height: 1.4;
+
+}
+
+
+/* =========================================
+        RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .methodology-card {
+
+        padding: 20px;
+
+    }
+
+    .methodology-item-top {
+
+        gap: 10px;
+
+    }
+
+    .methodology-item-top > strong {
+
+        font-size: 12px;
+
+    }
+
+}

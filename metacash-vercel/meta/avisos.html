@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Avisos | MetaCash</title>
+
+
+    <!-- =====================================
+            FONTE
+    ====================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================
+            CSS
+    ====================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/paginas/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/paginas/avisos.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+            FUNDO
+    ====================================== -->
+
+    <div class="background"></div>
+
+
+
+    <!-- =====================================
+            CARD PRINCIPAL
+    ====================================== -->
+
+    <main class="avisos-card">
+
+
+        <!-- =================================
+                ÍCONE
+        ================================== -->
+
+        <div class="avisos-icon">
+
+            🔔
+
+        </div>
+
+
+
+        <!-- =================================
+                TÍTULO
+        ================================== -->
+
+        <section class="welcome">
+
+            <h1>
+
+                Configurar avisos
+
+            </h1>
+
+
+            <p>
+
+                Escolha quando o MetaCash deve chamar sua atenção.
+
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================
+                AVISO DAS CATEGORIAS
+        ================================== -->
+
+        <section class="aviso-section">
+
+
+            <h2>
+
+                Aviso das categorias
+
+            </h2>
+
+
+            <p class="description">
+
+                Quando seus gastos atingirem qual percentual do limite?
+
+            </p>
+
+
+            <div class="percentage-options">
+
+
+                <!-- 70% -->
+
+                <label class="percentage-option">
+
+                    <input
+                        type="radio"
+                        name="limiteCategoria"
+                        value="70"
+                    >
+
+                    <span>
+
+                        70%
+
+                    </span>
+
+                </label>
+
+
+
+                <!-- 80% -->
+
+                <label class="percentage-option">
+
+                    <input
+                        type="radio"
+                        name="limiteCategoria"
+                        value="80"
+                        checked
+                    >
+
+                    <span>
+
+                        80%
+
+                    </span>
+
+                </label>
+
+
+
+                <!-- 90% -->
+
+                <label class="percentage-option">
+
+                    <input
+                        type="radio"
+                        name="limiteCategoria"
+                        value="90"
+                    >
+
+                    <span>
+
+                        90%
+
+                    </span>
+
+                </label>
+
+
+
+                <!-- 100% -->
+
+                <label class="percentage-option">
+
+                    <input
+                        type="radio"
+                        name="limiteCategoria"
+                        value="100"
+                    >
+
+                    <span>
+
+                        100%
+
+                    </span>
+
+                </label>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================
+                SALDO MÍNIMO
+        ================================== -->
+
+        <section class="aviso-section">
+
+
+            <h2>
+
+                Saldo mínimo
+
+            </h2>
+
+
+            <p class="description">
+
+                Avisar quando seu saldo ficar abaixo deste valor.
+
+            </p>
+
+
+            <div class="input-money">
+
+                <span>
+
+                    R$
+
+                </span>
+
+
+                <input
+                    type="number"
+                    id="saldoMinimo"
+                    min="0"
+                    step="0.01"
+                    value="50"
+                    placeholder="50,00"
+                >
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================
+                COMPARAÇÃO MENSAL
+        ================================== -->
+
+        <section class="aviso-section">
+
+
+            <div class="toggle-option">
+
+
+                <div class="toggle-info">
+
+                    <h2>
+
+                        Comparação mensal
+
+                    </h2>
+
+
+                    <p class="description">
+
+                        Comparar seus gastos com o mês anterior.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- SWITCH -->
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="comparacaoMensal"
+                        checked
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================
+                BOTÕES
+        ================================== -->
+
+        <div class="buttons">
+
+
+            <button
+                type="button"
+                id="voltar"
+                class="back-button"
+            >
+
+                ← Voltar
+
+            </button>
+
+
+
+            <button
+                type="button"
+                id="finalizar"
+                class="continue-button"
+            >
+
+                Finalizar configuração
+
+                <span>
+
+                    ✓
+
+                </span>
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- =================================
+                ETAPA
+        ================================== -->
+
+        <p class="footer-text">
+
+            Etapa 2 de 2
+
+        </p>
+
+
+    </main>
+
+
+
+    <!-- =====================================
+            JAVASCRIPT
+    ====================================== -->
+
+    <script src="../js/avisos.js"></script>
+
+</body>
+
+</html>

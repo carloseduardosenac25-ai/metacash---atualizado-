@@ -1,0 +1,738 @@
+/* =========================================
+        CADASTRO
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+
+    margin: 0;
+
+    padding: 0;
+
+    min-height: 100vh;
+
+}
+
+
+body {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px;
+
+    background: #020616;
+
+    color: #FFFFFF;
+
+    font-family:
+        'Poppins',
+        sans-serif;
+
+}
+
+
+/* =========================================
+        FUNDO
+========================================= */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -1;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 20%,
+             #020616(
+                0,
+                229,
+                168,
+                0.10
+            ),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 80%,
+             #020616(
+                98,
+                104,
+                223,
+                0.12
+            ),
+            transparent 35%
+        ),
+
+        #020616;
+
+}
+
+
+/* =========================================
+        CARD PRINCIPAL
+========================================= */
+
+.config-card {
+
+    width: 100%;
+
+    max-width: 650px;
+
+    padding: 42px;
+
+    background:
+         #020616(
+            16,
+            23,
+            38,
+            0.94
+        );
+
+    border:
+        1px solid
+         #020616(
+            255,
+            255,
+            255,
+            0.06
+        );
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 25px 60px
+        rgba(
+            0,
+            0,
+            0,
+            0.45
+        );
+
+    animation:
+        aparecer
+        0.6s ease;
+
+}
+
+
+/* =========================================
+        LOGO
+========================================= */
+
+.logo {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+}
+
+
+.logo img {
+
+    width: 150px;
+
+    height: auto;
+
+}
+
+
+/* =========================================
+        BOAS-VINDAS
+========================================= */
+
+.welcome {
+
+    text-align: center;
+
+    margin-bottom: 35px;
+
+}
+
+
+.welcome h1 {
+
+    margin:
+        0 0 8px;
+
+    font-size: 28px;
+
+    font-weight: 600;
+
+}
+
+
+.welcome p {
+
+    margin: 0;
+
+    color:
+        #9DA6B5;
+
+    font-size:
+        13px;
+
+}
+
+
+/* =========================================
+        FORM GROUP
+========================================= */
+
+.form-group {
+
+    margin-bottom:
+        30px;
+
+}
+
+
+.form-group label {
+
+    display:
+        block;
+
+    margin-bottom:
+        10px;
+
+    color:
+        #D9DEE7;
+
+    font-size:
+        13px;
+
+}
+
+
+/* =========================================
+        INPUT MONEY
+========================================= */
+
+.input-money {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    width:
+        100%;
+
+    height:
+        52px;
+
+    padding:
+        0 16px;
+
+    background:
+        #090F1E;
+
+    border:
+        1px solid
+        #202A3D;
+
+    border-radius:
+        13px;
+
+    transition:
+        0.25s;
+
+}
+
+
+.input-money:focus-within {
+
+    border-color:
+        #00D68F;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(
+            0,
+            214,
+            143,
+            0.08
+        );
+
+}
+
+
+.input-money span {
+
+    margin-right:
+        8px;
+
+    color:
+        #00D68F;
+
+    font-size:
+        14px;
+
+    font-weight:
+        600;
+
+}
+
+
+.input-money input {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    border:
+        none;
+
+    outline:
+        none;
+
+    background:
+        transparent;
+
+    color:
+        #FFFFFF;
+
+    font-family:
+        'Poppins',
+        sans-serif;
+
+    font-size:
+        17px;
+
+}
+
+
+.input-money input::placeholder {
+
+    color:
+        #526075;
+
+}
+
+
+.input-money input::-webkit-inner-spin-button,
+.input-money input::-webkit-outer-spin-button {
+
+    -webkit-appearance:
+        none;
+
+    margin:
+        0;
+
+}
+
+
+/* =========================================
+        TÍTULO CATEGORIAS
+========================================= */
+
+.form-group h2 {
+
+    margin:
+        0 0 5px;
+
+    color:
+        #FFFFFF;
+
+    font-size:
+        17px;
+
+    font-weight:
+        500;
+
+}
+
+
+.description {
+
+    margin:
+        0 0 18px;
+
+    color:
+        #7F8999;
+
+    font-size:
+        12px;
+
+}
+
+
+/* =========================================
+        CATEGORIAS
+========================================= */
+
+.categories {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap:
+        12px;
+
+}
+
+
+/* =========================================
+        CATEGORY CARD
+========================================= */
+
+.category {
+
+    position:
+        relative;
+
+    min-height:
+        58px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    padding:
+        12px 14px;
+
+    background:
+        #0A1020;
+
+    border:
+        1px solid
+        #202A3D;
+
+    border-radius:
+        12px;
+
+    cursor:
+        pointer;
+
+    transition:
+        0.25s;
+
+}
+
+
+.category:hover {
+
+    border-color:
+        #00D68F;
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.category input {
+
+    position:
+        absolute;
+
+    width:
+        1px;
+
+    height:
+        1px;
+
+    opacity:
+        0;
+
+}
+
+
+.category span {
+
+    width:
+        35px;
+
+    height:
+        35px;
+
+    flex-shrink:
+        0;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        9px;
+
+    background:
+        #151E30;
+
+    font-size:
+        17px;
+
+}
+
+
+.category strong {
+
+    color:
+        #FFFFFF;
+
+    font-size:
+        12px;
+
+    font-weight:
+        500;
+
+}
+
+
+.category:has(
+    input:checked
+) {
+
+    background:
+        rgba(
+            0,
+            214,
+            143,
+            0.08
+        );
+
+    border-color:
+        #00D68F;
+
+}
+
+
+.category:has(
+    input:checked
+)::after {
+
+    content:
+        "✓";
+
+    margin-left:
+        auto;
+
+    color:
+        #00D68F;
+
+    font-size:
+        16px;
+
+    font-weight:
+        700;
+
+}
+
+
+/* =========================================
+        BOTÃO
+========================================= */
+
+.continue-button {
+
+    width:
+        100%;
+
+    height:
+        50px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        9px;
+
+    margin-top:
+        5px;
+
+    border:
+        none;
+
+    border-radius:
+        13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00D68F,
+            #20E5A5
+        );
+
+    color:
+        #02110C;
+
+    font-family:
+        'Poppins',
+        sans-serif;
+
+    font-size:
+        14px;
+
+    font-weight:
+        700;
+
+    cursor:
+        pointer;
+
+    transition:
+        0.25s;
+
+}
+
+
+.continue-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 12px 25px
+        rgba(
+            0,
+            214,
+            143,
+            0.22
+        );
+
+}
+
+
+.continue-button span {
+
+    font-size:
+        18px;
+
+}
+
+
+/* =========================================
+        RODAPÉ
+========================================= */
+
+.footer-text {
+
+    margin:
+        20px 0 0;
+
+    text-align:
+        center;
+
+    color:
+        #626D7D;
+
+    font-size:
+        10px;
+
+}
+
+
+/* =========================================
+        ANIMAÇÃO
+========================================= */
+
+@keyframes aparecer {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(20px);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================================
+        CELULAR
+========================================= */
+
+@media (max-width: 600px) {
+
+    body {
+
+        padding:
+            15px;
+
+    }
+
+
+    .config-card {
+
+        padding:
+            30px 22px;
+
+        border-radius:
+            20px;
+
+    }
+
+
+    .logo img {
+
+        width:
+            125px;
+
+    }
+
+
+    .welcome h1 {
+
+        font-size:
+            23px;
+
+    }
+
+
+    .categories {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}

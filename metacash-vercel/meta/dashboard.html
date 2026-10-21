@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard | MetaCash</title>
+
+
+    <!-- =====================================
+            FONTE
+    ====================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================
+            CSS
+    ====================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/paginas/global.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/paginas/dashboard.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+            SIDEBAR
+    ====================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- LOGO -->
+
+        <div class="sidebar-logo">
+
+            <img
+                src="../assets/icons/imagens/logo/abacate.png"
+                alt="MetaCash"
+            >
+
+        </div>
+
+
+        <!-- =================================
+                MENU
+        ================================== -->
+
+        <nav class="menu">
+
+
+            <!-- DASHBOARD -->
+
+            <a
+                href="dashboard.html"
+                class="menu-item active"
+            >
+
+                <span>⌂</span>
+
+                Dashboard
+
+            </a>
+
+
+            <!-- ENTRADAS -->
+
+            <a
+                href="entradas.html"
+                class="menu-item"
+            >
+
+                <span>＋</span>
+
+                Entradas
+
+            </a>
+
+
+            <!-- GASTOS -->
+
+            <a
+                href="gastos.html"
+                class="menu-item"
+            >
+
+                <span>−</span>
+
+                Gastos
+
+            </a>
+
+
+            <!-- METAS -->
+
+            <a
+                href="metas.html"
+                class="menu-item"
+            >
+
+                <span>🎯</span>
+
+                Metas
+
+            </a>
+
+
+            <!-- RELATÓRIOS -->
+
+            <a
+                href="relatorios.html"
+                class="menu-item"
+            >
+
+                <span>▣</span>
+
+                Relatórios
+
+            </a>
+
+
+            <!-- CONFIGURAÇÕES -->
+
+            <a
+                href="configuracoes.html"
+                class="menu-item"
+            >
+
+                <span>⚙</span>
+
+                Configurações
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- =================================
+                SAIR
+        ================================== -->
+
+        <div class="sidebar-bottom">
+
+            <button id="sair">
+
+                ↪ Sair
+
+            </button>
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =====================================
+            DASHBOARD
+    ====================================== -->
+
+    <main class="dashboard">
+
+
+        <!-- =================================
+                CABEÇALHO
+        ================================== -->
+
+        <div class="dashboard-header">
+
+
+            <div class="welcome">
+
+                <h1 id="saudacao">
+
+                    Olá!
+
+                </h1>
+
+
+                <p id="nomeUsuario">
+
+                    Usuário
+
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-user-tools">
+
+                <time class="dashboard-date" id="dataAtual" aria-label="Data de hoje"></time>
+
+                <div
+                    class="avatar"
+                    id="avatar"
+                >
+                    U
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================
+                CARDS
+        ================================== -->
+
+        <div class="cards-container">
+
+
+            <!-- SALDO -->
+
+            <div class="card saldo">
+
+                <h3>
+
+                    Saldo Atual
+
+                </h3>
+
+
+                <p id="saldoAtual">
+
+                    R$ 0,00
+
+                </p>
+
+            </div>
+
+
+            <!-- ENTRADAS -->
+
+            <div class="card entradas">
+
+                <h3>
+
+                    Total de Entradas
+
+                </h3>
+
+
+                <p id="totalEntradas">
+
+                    R$ 0,00
+
+                </p>
+
+            </div>
+
+
+            <!-- GASTOS -->
+
+            <div class="card gastos">
+
+                <h3>
+
+                    Total de Gastos
+
+                </h3>
+
+
+                <p id="totalGastos">
+
+                    R$ 0,00
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================
+                ALERTAS FINANCEIROS
+        ================================== -->
+
+        <section
+            id="alertasFinanceiros"
+            class="alertas-financeiros"
+        ></section>
+
+
+
+        <!-- =================================
+                CATEGORIAS
+        ================================== -->
+
+        <section class="categories-section">
+
+
+            <h2>
+
+                Suas Categorias
+
+            </h2>
+
+
+            <div
+                id="categoriasLista"
+                class="categories-list"
+            ></div>
+
+
+        </section>
+
+
+
+        <!-- =================================
+                ÚLTIMAS MOVIMENTAÇÕES
+        ================================== -->
+
+        <section class="movements-section">
+
+
+            <div class="section-header">
+
+                <h2>
+
+                    Últimas movimentações
+
+                </h2>
+
+            </div>
+
+
+            <div
+                id="movimentacoesLista"
+                class="movements-list"
+            ></div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================
+            JAVASCRIPT
+    ====================================== -->
+
+
+
+    <!-- Modal explicativo da metodologia financeira -->
+    <div class="metodologia-modal-overlay" id="modalMetodologia" role="dialog" aria-modal="true" aria-labelledby="tituloMetodologia">
+        <section class="metodologia-modal">
+            <button class="metodologia-fechar" id="fecharMetodologia" type="button" aria-label="Fechar explicação">&times;</button>
+            <p class="metodologia-selo">ORGANIZAÇÃO FINANCEIRA</p>
+            <h2 id="tituloMetodologia">Metodologia 50/30/20</h2>
+            <p class="metodologia-intro"><strong>Por que usamos a metodologia 50/30/20?</strong><br>Ela é uma referência para organizar o dinheiro: cerca de 50% para necessidades, 30% para desejos e 20% para poupança, metas e prioridades financeiras.</p>
+            <div class="metodologia-explicacao-item">
+                <div class="metodologia-explicacao-titulo"><strong>50% — Necessidades</strong><span>50%</span></div>
+                <p>Despesas essenciais, como alimentação, moradia, contas e transporte.</p>
+            </div>
+            <div class="metodologia-explicacao-item">
+                <div class="metodologia-explicacao-titulo"><strong>30% — Desejos</strong><span>30%</span></div>
+                <p>Gastos pessoais, como lazer, jogos, compras e entretenimento.</p>
+            </div>
+            <div class="metodologia-explicacao-item">
+                <div class="metodologia-explicacao-titulo"><strong>20% — Economia</strong><span>20%</span></div>
+                <p>Dinheiro guardado para emergências, planos e objetivos futuros.</p>
+            </div>
+            <p class="metodologia-nota">É uma orientação, não uma regra obrigatória: adapte os percentuais à sua realidade. A reserva automática para metas é configurada separadamente e será calculada sobre cada nova entrada.</p>
+            <button class="metodologia-entendi" id="entendiMetodologia" type="button">Entendi</button>
+        </section>
+    </div>
+
+    <script src="../js/storage.js"></script>
+
+    <script src="../js/dashboard.js"></script>
+    <script src="../js/modal-metodologia.js"></script>
+
+
+</body>
+
+</html>Q

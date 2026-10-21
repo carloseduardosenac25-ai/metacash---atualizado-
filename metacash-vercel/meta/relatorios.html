@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Relatórios | MetaCash</title>
+
+
+  <!-- =========================================
+          FONTE
+  ========================================== -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+
+  <!-- =========================================
+          CSS
+  ========================================== -->
+
+  <link
+    rel="stylesheet"
+    href="../css/paginas/global.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="../css/paginas/relatorio.css"
+  />
+
+
+  <!-- =========================================
+          CHART.JS
+  ========================================== -->
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/chart.js"
+  ></script>
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================================
+          SIDEBAR
+  ========================================== -->
+
+  <aside class="sidebar">
+
+
+    <div class="sidebar-logo">
+
+      <img
+        src="../assets/icons/imagens/logo/abacate.png"
+        alt="MetaCash"
+      />
+
+    </div>
+
+
+    <nav class="menu">
+
+
+      <a
+        href="dashboard.html"
+        class="menu-item"
+      >
+
+        <span>⌂</span>
+
+        Dashboard
+
+      </a>
+
+
+      <a
+        href="entradas.html"
+        class="menu-item"
+      >
+
+        <span>＋</span>
+
+        Entradas
+
+      </a>
+
+
+      <a
+        href="gastos.html"
+        class="menu-item"
+      >
+
+        <span>−</span>
+
+        Gastos
+
+      </a>
+
+
+      <a
+        href="relatorios.html"
+        class="menu-item active"
+      >
+
+        <span>▣</span>
+
+        Relatórios
+
+      </a>
+
+
+      <a
+        href="configuracoes.html"
+        class="menu-item"
+      >
+
+        <span>⚙</span>
+
+        Configurações
+
+      </a>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+      <button id="sair">
+
+        ↪ Sair
+
+      </button>
+
+    </div>
+
+  </aside>
+
+
+
+  <!-- =========================================
+          ÁREA PRINCIPAL
+  ========================================== -->
+
+  <main class="report-main">
+
+
+    <!-- =======================================
+            CABEÇALHO
+    ======================================== -->
+
+    <div class="report-header">
+
+
+      <div>
+
+        <h1>
+          Relatórios mensais
+        </h1>
+
+      </div>
+
+
+      <!-- FILTROS -->
+
+      <div class="filters">
+
+
+        <select id="mesRelatorio">
+
+          <option value="todos">
+            Todos os meses
+          </option>
+
+          <option value="0">
+            Janeiro
+          </option>
+
+          <option value="1">
+            Fevereiro
+          </option>
+
+          <option value="2">
+            Março
+          </option>
+
+          <option value="3">
+            Abril
+          </option>
+
+          <option value="4">
+            Maio
+          </option>
+
+          <option value="5">
+            Junho
+          </option>
+
+          <option value="6">
+            Julho
+          </option>
+
+          <option value="7">
+            Agosto
+          </option>
+
+          <option value="8">
+            Setembro
+          </option>
+
+          <option value="9">
+            Outubro
+          </option>
+
+          <option value="10">
+            Novembro
+          </option>
+
+          <option value="11">
+            Dezembro
+          </option>
+
+        </select>
+
+
+        <select id="anoRelatorio"></select>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- =======================================
+            RESUMO
+    ======================================== -->
+
+    <div class="summary-grid">
+
+
+      <div class="summary-card">
+
+        <p>
+          Entradas
+        </p>
+
+        <h3 id="relatorioEntradas">
+          R$ 0,00
+        </h3>
+
+      </div>
+
+
+      <div class="summary-card">
+
+        <p>
+          Gastos
+        </p>
+
+        <h3 id="relatorioGastos">
+          R$ 0,00
+        </h3>
+
+      </div>
+
+
+      <div class="summary-card">
+
+        <p>
+          Saldo
+        </p>
+
+        <h3 id="relatorioSaldo">
+          R$ 0,00
+        </h3>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- =======================================
+            GRÁFICOS
+    ======================================== -->
+
+    <div class="chart-grid">
+
+
+      <!-- GRÁFICO DE CATEGORIAS -->
+
+      <div class="chart-card">
+
+        <canvas
+          id="graficoCategorias"
+        ></canvas>
+
+      </div>
+
+
+      <!-- GRÁFICO ENTRADAS X GASTOS -->
+
+      <div class="chart-card">
+
+        <canvas
+          id="graficoEntradasGastos"
+        ></canvas>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- =======================================
+            DETALHAMENTO
+    ======================================== -->
+
+    <div class="detail-card">
+
+
+      <h2>
+        Detalhamento por categoria
+      </h2>
+
+
+      <div
+        id="detalhamentoCategorias"
+      ></div>
+
+    </div>
+
+
+
+    <!-- =======================================
+            METODOLOGIA 50 / 30 / 20
+    ======================================== -->
+
+    <div class="methodology-card">
+
+
+      <!-- CABEÇALHO -->
+
+      <div class="methodology-header">
+
+
+        <span class="methodology-label">
+
+          METODOLOGIA
+
+        </span>
+
+
+        <h2>
+
+          Organização financeira
+
+        </h2>
+
+
+        <p>
+
+          Compare seus gastos com a divisão
+          planejada de 50%, 30% e 20%.
+
+        </p>
+
+      </div>
+
+
+
+      <!-- STATUS GERAL -->
+
+      <div
+        id="statusMetodologia"
+        class="methodology-status"
+      >
+
+        Analisando sua organização financeira...
+
+      </div>
+
+
+
+      <!-- =====================================
+              NECESSIDADES
+      ====================================== -->
+
+      <div class="methodology-item">
+
+
+        <div class="methodology-item-top">
+
+
+          <div>
+
+            <strong>
+              Necessidades
+            </strong>
+
+            <span>
+              Meta: 50%
+            </span>
+
+          </div>
+
+
+          <strong
+            id="percentualNecessidades"
+          >
+            0%
+          </strong>
+
+
+        </div>
+
+
+        <div class="methodology-bar">
+
+
+          <div
+            id="barraNecessidades"
+            class="methodology-bar-fill necessities"
+          ></div>
+
+
+        </div>
+
+
+        <div class="methodology-feedback">
+
+
+          <span
+            id="feedbackNecessidades"
+          >
+            -
+          </span>
+
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =====================================
+              LAZER
+      ====================================== -->
+
+      <div class="methodology-item">
+
+
+        <div class="methodology-item-top">
+
+
+          <div>
+
+            <strong>
+              Lazer
+            </strong>
+
+            <span>
+              Meta: 30%
+            </span>
+
+          </div>
+
+
+          <strong
+            id="percentualLazer"
+          >
+            0%
+          </strong>
+
+
+        </div>
+
+
+        <div class="methodology-bar">
+
+
+          <div
+            id="barraLazer"
+            class="methodology-bar-fill leisure"
+          ></div>
+
+
+        </div>
+
+
+        <div class="methodology-feedback">
+
+
+          <span
+            id="feedbackLazer"
+          >
+            -
+          </span>
+
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =====================================
+              ECONOMIA
+      ====================================== -->
+
+      <div class="methodology-item">
+
+
+        <div class="methodology-item-top">
+
+
+          <div>
+
+            <strong>
+              Economia
+            </strong>
+
+            <span>
+              Meta: 20%
+            </span>
+
+          </div>
+
+
+          <strong
+            id="percentualEconomia"
+          >
+            0%
+          </strong>
+
+
+        </div>
+
+
+        <div class="methodology-bar">
+
+
+          <div
+            id="barraEconomia"
+            class="methodology-bar-fill economy"
+          ></div>
+
+
+        </div>
+
+
+        <div class="methodology-feedback">
+
+
+          <span
+            id="feedbackEconomia"
+          >
+            -
+          </span>
+
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+
+  </main>
+
+
+
+  <!-- =========================================
+          JAVASCRIPT
+  ========================================== -->
+
+  <script
+    src="../js/relatorio.js"
+  ></script>
+
+
+</body>
+
+</html>

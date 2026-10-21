@@ -1,0 +1,1262 @@
+/* =========================================
+        DASHBOARD
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #020616;
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* =========================================
+        SIDEBAR
+========================================= */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: 230px;
+    height: 100vh;
+
+    padding: 30px 18px;
+
+    background: #020616;
+
+    border-right: 1px solid #172033;
+
+    display: flex;
+    flex-direction: column;
+
+    z-index: 10;
+}
+
+
+/* =========================================
+        LOGO
+========================================= */
+
+.sidebar-logo {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 45px;
+}
+
+.sidebar-logo img {
+    width: 145px;
+    height: auto;
+}
+
+
+/* =========================================
+        MENU
+========================================= */
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px 15px;
+
+    border-radius: 10px;
+
+    color: #8993A5;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    transition: 0.25s;
+}
+
+.menu-item span {
+    width: 22px;
+
+    font-size: 17px;
+
+    text-align: center;
+}
+
+.menu-item:hover {
+    background: #0B1222;
+    color: #FFFFFF;
+}
+
+.menu-item.active {
+    background: rgba(0, 214, 143, 0.10);
+    color: #00D68F;
+}
+
+
+/* =========================================
+        BOTÃO SAIR
+========================================= */
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+#sair {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #172033;
+
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: #8993A5;
+
+    cursor: pointer;
+
+    font-family: 'Poppins', sans-serif;
+
+    transition: 0.25s;
+}
+
+#sair:hover {
+    color: #FF6577;
+    border-color: #FF6577;
+}
+
+
+/* =========================================
+        DASHBOARD
+========================================= */
+
+.dashboard {
+    margin-left: 230px;
+
+    min-height: 100vh;
+
+    padding: 35px 40px 50px;
+}
+
+
+/* =========================================
+        CABEÇALHO
+========================================= */
+
+.dashboard-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 28px;
+}
+
+.dashboard-user-tools {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.dashboard-date {
+    color: #8993A5;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.welcome h1 {
+    margin: 0;
+
+    color: #FFFFFF;
+
+    font-size: 27px;
+
+    font-weight: 600;
+}
+
+.welcome p {
+    margin: 6px 0 0;
+
+    color: #657084;
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+        AVATAR
+========================================= */
+
+.avatar {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00D68F,
+            #20E5A5
+        );
+
+    color: #02110C;
+
+    font-size: 15px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+        CARDS
+========================================= */
+
+.cards-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+
+    margin-bottom: 25px;
+}
+
+.card {
+    min-height: 145px;
+
+    padding: 22px;
+
+    background: #071022;
+
+    border: 1px solid #172033;
+
+    border-radius: 16px;
+
+    transition: 0.25s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+
+    border-color: #263652;
+}
+
+.card h3 {
+    margin: 0 0 18px;
+
+    color: #8993A5;
+
+    font-size: 12px;
+
+    font-weight: 500;
+}
+
+.card p {
+    margin: 0;
+
+    font-size: 25px;
+
+    font-weight: 600;
+}
+
+
+/* Saldo */
+
+.card.saldo {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 214, 143, 0.09),
+            #071022
+        );
+}
+
+.card.saldo p {
+    color: #00D68F;
+}
+
+
+/* Entradas */
+
+.card.entradas p {
+    color: #6EC8FF;
+}
+
+
+/* Gastos */
+
+.card.gastos p {
+    color: #FF6577;
+}
+
+
+/* =========================================
+        CATEGORIAS
+========================================= */
+
+.categories-section {
+    width: 100%;
+
+    margin-bottom: 25px;
+}
+
+.categories-section h2 {
+    margin: 0 0 15px;
+
+    color: #FFFFFF;
+
+    font-size: 18px;
+
+    font-weight: 600;
+}
+
+.categories-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.category-row {
+    width: 100%;
+
+    padding: 16px;
+
+    background: #071022;
+
+    border: 1px solid #172033;
+
+    border-radius: 14px;
+
+    transition: 0.25s;
+}
+
+.category-row:hover {
+    transform: translateY(-2px);
+
+    border-color: #263652;
+}
+
+
+/* =========================================
+        PARTE SUPERIOR DA CATEGORIA
+========================================= */
+
+.category-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 10px;
+}
+
+.category-left {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 0;
+}
+
+
+/* =========================================
+        ÍCONE DA CATEGORIA
+========================================= */
+
+.category-icon {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+
+    background: #0B1426;
+
+    border: 1px solid #202A3D;
+
+    font-size: 17px;
+}
+
+
+/* =========================================
+        INFORMAÇÕES DA CATEGORIA
+========================================= */
+
+.category-info {
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.category-info strong {
+    color: #E9F0FF;
+
+    font-size: 13px;
+
+    font-weight: 500;
+}
+
+.category-info small {
+    color: #687791;
+
+    font-size: 10px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================
+        PORCENTAGEM
+========================================= */
+
+.category-percent {
+    flex-shrink: 0;
+
+    color: #20E890;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+        BARRA
+========================================= */
+
+.category-progress {
+    width: 100%;
+
+    height: 7px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: #101A2C;
+}
+
+.category-progress-bar {
+    height: 100%;
+
+    border-radius: 20px;
+
+    transition:
+        width 0.6s ease;
+}
+
+
+/* =========================================
+        SEM CATEGORIAS
+========================================= */
+
+.empty-category {
+    margin: 0;
+
+    padding: 25px;
+
+    text-align: center;
+
+    color: #657084;
+
+    font-size: 12px;
+
+    background: #071022;
+
+    border: 1px solid #172033;
+
+    border-radius: 14px;
+}
+
+
+/* =========================================
+        METODOLOGIA
+========================================= */
+
+.dashboard-metodologia {
+    width: 100%;
+
+    margin-bottom: 25px;
+
+    padding: 24px;
+
+    background: #071022;
+
+    border: 1px solid #172033;
+
+    border-radius: 16px;
+}
+
+.metodologia-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 20px;
+
+    margin-bottom: 22px;
+}
+
+.metodologia-label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #00D68F;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+}
+
+.metodologia-header h2 {
+    margin: 0 0 6px;
+
+    color: #FFFFFF;
+
+    font-size: 17px;
+
+    font-weight: 500;
+}
+
+.metodologia-header p {
+    margin: 0;
+
+    color: #718096;
+
+    font-size: 11px;
+}
+
+.metodologia-status {
+    flex-shrink: 0;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+.metodologia-item {
+    margin-bottom: 20px;
+}
+
+.metodologia-item:last-child {
+    margin-bottom: 0;
+}
+
+.metodologia-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 7px;
+}
+
+.metodologia-top span {
+    color: #FFFFFF;
+
+    font-size: 11px;
+}
+
+.metodologia-top strong {
+    color: #A8B2C4;
+
+    font-size: 10px;
+}
+
+.metodologia-bar {
+    width: 100%;
+
+    height: 8px;
+
+    overflow: hidden;
+
+    border-radius: 99px;
+
+    background: #101A2C;
+}
+
+.metodologia-fill {
+    height: 100%;
+
+    border-radius: 99px;
+
+    transition:
+        width 0.6s ease;
+}
+
+.metodologia-fill.necessidades {
+    background:
+        linear-gradient(
+            90deg,
+            #6268DF,
+            #7D82FF
+        );
+}
+
+.metodologia-fill.lazer {
+    background:
+        linear-gradient(
+            90deg,
+            #B53CC0,
+            #D84AC7
+        );
+}
+
+.metodologia-fill.economia {
+    background:
+        linear-gradient(
+            90deg,
+            #00D68F,
+            #20E5A5
+        );
+}
+
+
+/* =========================================
+        MOVIMENTAÇÕES
+========================================= */
+
+.movements-section {
+    width: 100%;
+
+    margin-top: 5px;
+
+    padding-bottom: 25px;
+}
+
+.section-header {
+    margin-bottom: 15px;
+}
+
+.section-header h2 {
+    margin: 0;
+
+    color: #FFFFFF;
+
+    font-size: 18px;
+
+    font-weight: 600;
+}
+
+.movements-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.movement-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 14px 16px;
+
+    background: #071022;
+
+    border: 1px solid #172033;
+
+    border-radius: 12px;
+
+    transition: 0.25s;
+}
+
+.movement-item:hover {
+    transform: translateY(-2px);
+
+    border-color: #263652;
+}
+
+
+/* =========================================
+        ÍCONE DA MOVIMENTAÇÃO
+========================================= */
+
+.movement-icon {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+
+    font-size: 18px;
+
+    font-weight: 600;
+}
+
+.movement-income .movement-icon {
+    background: rgba(0, 214, 143, 0.10);
+
+    border: 1px solid rgba(0, 214, 143, 0.20);
+
+    color: #20E890;
+}
+
+.movement-expense .movement-icon {
+    background: rgba(255, 101, 119, 0.10);
+
+    border: 1px solid rgba(255, 101, 119, 0.20);
+
+    color: #FF5C5C;
+}
+
+
+/* =========================================
+        INFORMAÇÕES
+========================================= */
+
+.movement-info {
+    flex: 1;
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.movement-info strong {
+    color: #E9F0FF;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+.movement-info small {
+    color: #687791;
+
+    font-size: 10px;
+}
+
+.movement-value {
+    flex-shrink: 0;
+
+    white-space: nowrap;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.movement-income .movement-value {
+    color: #20E890;
+}
+
+.movement-expense .movement-value {
+    color: #FF5C5C;
+}
+
+
+/* =========================================
+        SEM MOVIMENTAÇÕES
+========================================= */
+
+.empty-movements {
+    margin: 0;
+
+    padding: 25px;
+
+    text-align: center;
+
+    color: #657084;
+
+    font-size: 12px;
+
+    background: #071022;
+
+    border: 1px solid #172033;
+
+    border-radius: 12px;
+}
+
+
+/* =========================================
+        TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .sidebar {
+        width: 190px;
+    }
+
+    .dashboard {
+        margin-left: 190px;
+
+        padding:
+            30px;
+    }
+
+    .cards-container {
+        grid-template-columns:
+            1fr;
+    }
+
+}
+
+
+/* =========================================
+        CELULAR
+========================================= */
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        position: relative;
+
+        width: 100%;
+
+        height: auto;
+
+        padding: 15px;
+
+        border-right: none;
+
+        border-bottom:
+            1px solid #172033;
+    }
+
+    .sidebar-logo {
+        margin-bottom: 15px;
+    }
+
+    .sidebar-logo img {
+        width: 120px;
+    }
+
+    .menu {
+        flex-direction: row;
+
+        overflow-x: auto;
+    }
+
+    .menu-item {
+        white-space: nowrap;
+    }
+
+    .sidebar-bottom {
+        display: none;
+    }
+
+    .dashboard {
+        margin-left: 0;
+
+        padding:
+            22px 15px 35px;
+    }
+
+    .dashboard-header {
+        align-items: flex-start;
+    }
+
+    .cards-container {
+        grid-template-columns:
+            1fr;
+    }
+
+    .category-top {
+        gap: 10px;
+    }
+
+    .category-info small {
+        max-width: 180px;
+    }
+
+    .metodologia-header {
+        flex-direction: column;
+    }
+
+    .movement-item {
+        padding: 12px;
+    }
+
+    .movement-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .movement-info strong {
+        font-size: 12px;
+    }
+
+    .movement-value {
+        font-size: 11px;
+    }
+
+}
+/* =========================================
+        ALERTAS FINANCEIROS
+========================================= */
+
+.alertas-financeiros {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =========================================
+        CARD DO ALERTA
+========================================= */
+
+.alerta-financeiro {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px 16px;
+
+    background: #071022;
+
+    border: 1px solid #172033;
+
+    border-radius: 12px;
+
+    transition: 0.25s;
+
+}
+
+
+.alerta-financeiro:hover {
+
+    transform: translateY(-2px);
+
+    border-color: #263652;
+
+}
+
+
+/* =========================================
+        ÍCONE
+========================================= */
+
+.alerta-financeiro-icon {
+
+    width: 38px;
+
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    font-size: 18px;
+
+}
+
+
+/* =========================================
+        TEXTO
+========================================= */
+
+.alerta-financeiro-info {
+
+    flex: 1;
+
+    min-width: 0;
+
+}
+
+
+.alerta-financeiro-info strong {
+
+    display: block;
+
+    color: #FFFFFF;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+}
+
+
+.alerta-financeiro-info p {
+
+    margin: 3px 0 0;
+
+    color: #718096;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================
+        SUCESSO
+========================================= */
+
+.alerta-financeiro.sucesso {
+
+    background:
+        rgba(
+            0,
+            214,
+            143,
+            0.05
+        );
+
+    border-color:
+        rgba(
+            0,
+            214,
+            143,
+            0.20
+        );
+
+}
+
+
+.alerta-financeiro.sucesso
+.alerta-financeiro-icon {
+
+    background:
+        rgba(
+            0,
+            214,
+            143,
+            0.10
+        );
+
+    color: #00D68F;
+
+}
+
+
+/* =========================================
+        ATENÇÃO
+========================================= */
+
+.alerta-financeiro.atencao {
+
+    background:
+        rgba(
+            255,
+            209,
+            102,
+            0.05
+        );
+
+    border-color:
+        rgba(
+            255,
+            209,
+            102,
+            0.20
+        );
+
+}
+
+
+.alerta-financeiro.atencao
+.alerta-financeiro-icon {
+
+    background:
+        rgba(
+            255,
+            209,
+            102,
+            0.10
+        );
+
+    color: #FFD166;
+
+}
+
+
+/* =========================================
+        PERIGO
+========================================= */
+
+.alerta-financeiro.perigo {
+
+    background:
+        rgba(
+            255,
+            101,
+            119,
+            0.05
+        );
+
+    border-color:
+        rgba(
+            255,
+            101,
+            119,
+            0.20
+        );
+
+}
+
+
+.alerta-financeiro.perigo
+.alerta-financeiro-icon {
+
+    background:
+        rgba(
+            255,
+            101,
+            119,
+            0.10
+        );
+
+    color: #FF6577;
+
+}
+
+
+/* =========================================
+        CELULAR
+========================================= */
+
+@media (max-width: 600px) {
+
+    .alerta-financeiro {
+
+        align-items: flex-start;
+
+        padding: 13px;
+
+    }
+
+
+    .alerta-financeiro-info strong {
+
+        font-size: 11px;
+
+    }
+
+
+    .alerta-financeiro-info p {
+
+        font-size: 9px;
+
+    }
+
+}
+
+@media (max-width: 480px) {
+    .dashboard-user-tools { gap: 8px; }
+    .dashboard-date { font-size: 10px; }
+}
+
+
+/* Modal explicativo da metodologia 50/30/20 */
+.metodologia-modal-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px; background: rgba(1, 5, 15, .78);
+    backdrop-filter: blur(5px);
+}
+.metodologia-modal-overlay[hidden] { display: none; }
+.metodologia-modal {
+    position: relative; width: min(100%, 510px); max-height: min(88vh, 760px);
+    overflow-y: auto; padding: 34px 32px 28px;
+    color: #f4f7fb; background: #101726;
+    border: 1px solid #263248; border-radius: 20px;
+    box-shadow: 0 24px 80px rgba(0,0,0,.45);
+}
+.metodologia-fechar {
+    position: absolute; top: 12px; right: 15px; width: 36px; height: 36px;
+    border: 0; border-radius: 10px; background: transparent; color: #cbd5e1;
+    font-size: 30px; line-height: 1; cursor: pointer;
+}
+.metodologia-fechar:hover { background: #202c40; color: #fff; }
+.metodologia-selo { margin: 0 0 8px; color: #00d68f; font-size: 10px; font-weight: 700; letter-spacing: 1.4px; }
+.metodologia-modal h2 { margin: 0 38px 8px 0; font-size: clamp(21px, 4vw, 27px); color: #fff; }
+.metodologia-intro { margin: 0 0 24px; color: #aab6c8; font-size: 13px; line-height: 1.6; }
+.metodologia-explicacao-item { padding: 15px 16px; margin: 0 0 12px; background: #0a1120; border: 1px solid #202c40; border-radius: 12px; }
+.metodologia-explicacao-titulo { display: flex; justify-content: space-between; gap: 12px; align-items: center; color: #f5f7fb; font-size: 14px; }
+.metodologia-explicacao-titulo span { color: #00d68f; font-weight: 700; }
+.metodologia-explicacao-item p { margin: 7px 0 0; color: #aab6c8; font-size: 12px; line-height: 1.6; }
+.metodologia-nota { margin: 16px 0; color: #8492a8; font-size: 11px; line-height: 1.6; }
+.metodologia-entendi { width: 100%; padding: 12px 16px; color: #04130e; background: #00d68f; border: 0; border-radius: 10px; font-weight: 700; cursor: pointer; }
+.metodologia-entendi:hover { background: #20e5a5; }
+@media (max-width: 480px) { .metodologia-modal { padding: 30px 20px 22px; } }
